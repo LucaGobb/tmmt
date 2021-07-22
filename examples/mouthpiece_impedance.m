@@ -18,8 +18,8 @@ omega = 2*pi*f.';
 
 % Include path to needed scripts
 addpath( '../', '../geometries/' );
-load('tromboneBore.mat');
-% load('mouthpiece.mat');
+% load('tromboneBore.mat');
+load('mouthpiece.mat');
 
 
 % Physical constants
