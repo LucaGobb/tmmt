@@ -19,6 +19,8 @@ omega = 2*pi*f.';
 % Include path to needed scripts
 addpath( '../', '../geometries/' );
 load('tromboneBore.mat');
+% load('complete_trombone.mat');
+% load('complete_trombone_adapted.mat');
 % load('mouthpiece.mat');
 
 
@@ -36,6 +38,7 @@ plot(sampledCurve(:,1),sampledCurve(:,2));
 boreData = 1e-3* sampledCurve';
 holeData = zeros(6, 0); % no hole present in the trombone
 title('Tenor trombone bore profile');
+axis equal;
 
 pause()
 figure(2)
