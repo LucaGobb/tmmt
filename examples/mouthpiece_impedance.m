@@ -19,6 +19,8 @@ omega = 2*pi*f.';
 % Include path to needed scripts
 addpath( '../', '../geometries/' );
 load('tromboneBore.mat');
+load('mouthpiece.mat');
+
 
 % Physical constants
 T = 20;   % temperature (C)
@@ -30,11 +32,13 @@ end
 
 % Get  geometry data
 figure(1)
-% drawBore 'keefeFlute'; % todo
-plot(sampledCurve(:,1),sampledCurve(:,2));
-boreData = 1e-3* sampledCurve';
+plot(mouthpiece(:,1),mouthpiece(:,2), 'b');
+boreData = 1e-3* mouthpiece';
 holeData = zeros(6, 0); % no hole present in the trombone
 title('Tenor trombone bore profile');
+hold on;
+plot(mouthpiece(:,1),-mouthpiece(:,2), 'b');
+axis equal;
 
 pause()
 figure(2)
@@ -48,10 +52,10 @@ pause()
 %%
 % Do TMM calculations and plot
 figure(3)
-plotTypes = [1 2];
+plotTypes = [1 11];
 Zin = tmm( boreData, holeData, rho, c, k, CST, endType );
 rzplot( f, Zin, plotTypes, true, false, [], 'b-', [], true); % with time-domain smoothing
-xlim([0 100]);
+xlim([0 80]);
 subplot(numel(plotTypes), 1, 1)
-title('Input Impedance of a tenor trombone.')
+title('Input Impedance of a tenor trombone mouthpiece.')
 ylim([-40 40])

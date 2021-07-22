@@ -19,6 +19,8 @@ omega = 2*pi*f.';
 % Include path to needed scripts
 addpath( '../', '../geometries/' );
 load('tromboneBore.mat');
+% load('mouthpiece.mat');
+
 
 % Physical constants
 T = 20;   % temperature (C)
@@ -30,7 +32,6 @@ end
 
 % Get  geometry data
 figure(1)
-% drawBore 'keefeFlute'; % todo
 plot(sampledCurve(:,1),sampledCurve(:,2));
 boreData = 1e-3* sampledCurve';
 holeData = zeros(6, 0); % no hole present in the trombone
